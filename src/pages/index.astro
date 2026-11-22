@@ -1,11 +1,38 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Main from '../components/Main.astro';
+import { UPDATE_TYPE, UPDATES_V2 } from '../constants/updates.constants';
+import { TITLE, DESCRIPTION } from '../constants/seo.constants';
+import { heading, label, text } from '../styles/text.styles';
+import { twMerge } from 'tailwind-merge';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title={TITLE} description={DESCRIPTION}>
+	<Main class="container grid gap-20 md:gap-24">
+		<h1 class={heading({ level: 'h2', weight: 'regular' })}>
+			Hi, I'm Brett. I'm a Software Engineer building products with React, TypeScript, &amp; Node.js
+		</h1>
+
+		<section>
+			<h2 class={twMerge(label, 'mb-6')}>Updates</h2>
+			<ul class="grid gap-8">
+				{UPDATES_V2.map(({ year, updates }) => (
+					<li class="grid gap-3 sm:grid-cols-[120px_1fr] md:gap-6">
+						<span class={text({ color: 'secondary', className: 'leading-snug' })}>{year}</span>
+						<ul class="grid gap-2.5 md:gap-4">
+							{updates.map(({ update, suffix, type }) => (
+								<li class="relative">
+									{type === UPDATE_TYPE.ROLE && <div class="absolute -left-2.75 top-2.25 size-1 rounded-full bg-accent" />}
+									<p class={text({ className: 'leading-snug text-pretty' })}>
+										{update}
+										{suffix && <span class="text-sm text-text-muted"> ({suffix})</span>}
+									</p>
+								</li>
+							))}
+						</ul>
+					</li>
+				))}
+			</ul>
+		</section>
+	</Main>
 </Layout>

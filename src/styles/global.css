@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'Uncut Sans';
+	src: url('../assets/fonts/UncutSans-Variable.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+}
+
+@theme {
+	--font-sans: 'Uncut Sans', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'Fragment Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+
+	/* Cobalt */
+	--color-ds-cobalt-50: #eff3ff;
+	--color-ds-cobalt-100: #dfe7ff;
+	--color-ds-cobalt-200: #c4d2ff;
+	--color-ds-cobalt-300: #9db5ff;
+	--color-ds-cobalt-400: #7292ff;
+	--color-ds-cobalt-500: #4b73f5;
+	--color-ds-cobalt-600: #315fea;
+	--color-ds-cobalt-700: #254bc7;
+	--color-ds-cobalt-800: #203ea1;
+	--color-ds-cobalt-900: #1e347d;
+	--color-ds-cobalt-950: #172653;
+
+	/* Neutral */
+	--color-ds-neutral-50: #f4f5f3;
+	--color-ds-neutral-100: #dde1dc;
+	--color-ds-neutral-200: #d0d5cf;
+	--color-ds-neutral-300: #b8beb7;
+	--color-ds-neutral-400: #858a85;
+	--color-ds-neutral-500: #686e68;
+	--color-ds-neutral-600: #515751;
+	--color-ds-neutral-700: #3c423d;
+	--color-ds-neutral-800: #222522;
+	--color-ds-neutral-900: #191c19;
+	--color-ds-neutral-950: #101210;
+	--color-ds-white: #fff;
+	--color-ds-black: #000;
+
+	/* Semantic aliases mapped to the current design palette */
+	--color-bg: var(--color-ds-neutral-50);
+	--color-surface: var(--color-ds-white);
+	--color-border-soft: var(--color-ds-neutral-100);
+	--color-border: var(--color-ds-neutral-200);
+	--color-text-primary: var(--color-ds-neutral-900);
+	--color-text-muted: var(--color-ds-neutral-500);
+	--color-accent: var(--color-ds-cobalt-600);
+	--color-error: #c42020;
+}
+
+@font-face {
+	font-family: 'Fragment Mono';
+	src: url('../assets/fonts/FragmentMono-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a,
+button {
+	@apply cursor-pointer;
+}
+
+.root {
+	isolation: isolate;
+}
+
+@utility link-box {
+	position: relative;
+
+	:where(a:not(.link-overlay), abbr) {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+@utility link-overlay {
+	position: static;
+
+	&::before {
+		content: '';
+		position: absolute;
+		display: block;
+		cursor: inherit;
+		inset: 0;
+		z-index: 0;
+	}
+}
+
+@utility container {
+	@apply mx-auto max-w-none;
+	width: min(theme(maxWidth.3xl), 100vw - theme(spacing.10));
+}

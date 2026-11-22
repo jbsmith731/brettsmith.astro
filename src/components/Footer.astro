@@ -1,0 +1,13 @@
+---
+import { SOCIAL_LINKS } from '../constants/seo.constants';
+import { linkText } from '../styles/text.styles';
+---
+
+<footer class="container flex items-center justify-between gap-4 py-4 text-sm max-sm:flex-col-reverse md:py-8">
+	<p>&copy; {new Date().getFullYear()} Brett Smith</p>
+	<ul class="flex gap-4">
+		{SOCIAL_LINKS.map((link) => (
+			<li><a href={link.url} target="_blank" rel="noopener noreferrer" class={linkText({ color: 'primary' })}>{link.name}</a></li>
+		))}
+	</ul>
+</footer>

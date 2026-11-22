@@ -1,0 +1,177 @@
+[
+  {
+    "title": "The vertical codebase",
+    "url": "https://tkdodo.eu/blog/the-vertical-codebase",
+    "description": ""
+  },
+  {
+    "title": "Website hero section library",
+    "url": "https://supahero.io/",
+    "description": "Curated collection of beautiful website hero sections"
+  },
+  {
+    "title": "CSS Scroll Driven Animation",
+    "url": "https://karlkoch.me/writing/on-scroll-driven-animations",
+    "description": ""
+  },
+  {
+    "title": "Build a serverless API using Cloudflare Workers, Drizzle ORM, and Neon",
+    "url": "https://neon.com/blog/api-cf-drizzle-neon",
+    "description": "Learn how you can use Cloudflare Workers, Drizzle ORM, and Neon to build a serverless API"
+  },
+  {
+    "title": "Tailwind Clamp",
+    "url": "https://nicolas-cusan.github.io/tailwind-clamp/",
+    "description": "Tailwind CSS plugin to build responsive interfaces that scale smoothly using CSS clamp() without breakpoint micromanagement."
+  },
+  {
+    "title": "Tao of Node - Design, Architecture & Best Practices",
+    "url": "https://alexkondov.com/tao-of-node/",
+    "description": "One of the main benefits of JavaScript is that it runs both in the browser and the server. As an engineer you need to master a single language and your skills."
+  },
+  {
+    "title": "One Roundtrip Per Navigation",
+    "url": "https://overreacted.io/one-roundtrip-per-navigation/",
+    "description": "What do HTML, GraphQL, and RSC have in common?"
+  },
+  {
+    "title": "The Beauty of TanStack Router",
+    "url": "https://tkdodo.eu/blog/the-beauty-of-tan-stack-router",
+    "description": "Yes, it's type-safe, but there's so much more to love about TanStack Router."
+  },
+  {
+    "title": "Making Software",
+    "url": "https://www.makingsoftware.com/",
+    "description": "A reference manual for people who design and build software."
+  },
+  {
+    "title": "Fancy Box",
+    "url": "https://craft.mxkaske.dev/post/fancy-box",
+    "description": "Combobox inspired by GitHub's PR label selector and is powered by shadcn/ui"
+  },
+  {
+    "title": "Design Your Perfect shadcn/ui Theme",
+    "url": "https://tweakcn.com/",
+    "description": "Customize colors, typography, and layouts with a real-time preview"
+  },
+  {
+    "title": "tsoa",
+    "url": "https://tsoa-community.github.io/docs/",
+    "description": "OpenAPI-compliant Web APIs using TypeScript and Node"
+  },
+  {
+    "title": "Insomnia REST API Platform",
+    "url": "https://insomnia.rest/",
+    "description": "Leading Open Source API Development Platform for HTTP, REST, GraphQL, gRPC, SOAP, and WebSockets"
+  },
+  {
+    "title": "The TypeScript feature I never use - Avoiding TypeScript Assertions",
+    "url": "https://www.youtube.com/watch?v=Whh-TzvzRFs",
+    "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube."
+  },
+  {
+    "title": "Base UI",
+    "url": "https://base-ui.com/",
+    "description": "Unstyled UI components for building accessible web apps and design systems."
+  },
+  {
+    "title": "TSConfig Cheat Sheet",
+    "url": "https://www.totaltypescript.com/tsconfig-cheat-sheet",
+    "description": "Learn the essential TypeScript configuration options and create a concise tsconfig.json file for your projects with this helpful cheatsheet."
+  },
+  {
+    "title": "Remix Preview Mode API",
+    "url": "https://hygraph.com/blog/preview-mode-with-remix",
+    "description": "Emulate Next.js preview mode with Remix"
+  },
+  {
+    "title": "Where To Fetch In React",
+    "url": "https://jjenzz.com/making-component-fetching-the-exception/",
+    "description": "Initially, integrating data concerns within our components appeared intuitive to me and simplified the developer experience. However, I eventually found reasons to treat it as a last resort."
+  },
+  {
+    "title": "XState Store",
+    "url": "https://tkdodo.eu/blog/introducing-x-state-store",
+    "description": "There's a new state manager in the game, and it ticks all my boxes ..."
+  },
+  {
+    "title": "Find and Kill Local Node.js Processes",
+    "url": "https://www.ashryan.io/finding-and-killing-node-js-processes-on-mac/",
+    "description": "Port 3000 is already in use. 💣"
+  },
+  {
+    "title": "Build A Node App With Typescript",
+    "url": "https://www.totaltypescript.com/typescript-and-node",
+    "description": "Learn how to set up TypeScript to bundle a Node app using pnpm, Node.js, TypeScript, and ES Modules for a seamless development experience."
+  },
+  {
+    "title": "Figma Plugins with oAuth",
+    "url": "https://evilmartians.com/chronicles/how-to-make-next-level-figma-plugins-auth-routing-storage-and-more",
+    "description": "Playbook, a platform for creators to store, organize, and collaborate with creative content, needed a Figma plugin to create a smoother experience for designers. Learn how we built them a full-featured frontend application-style Figma plugin, with storage, auth, routing, and more. Plus, get tool recommendations and other tips!"
+  },
+  {
+    "title": "Create Figma Plugin",
+    "url": "https://yuanqing.github.io/create-figma-plugin/",
+    "description": "The comprehensive toolkit for developing plugins and widgets for Figma and FigJam"
+  },
+  {
+    "title": "Defensive CSS",
+    "url": "https://defensivecss.dev/tips",
+    "description": "Practical CSS and design tips"
+  },
+  {
+    "title": "Load Balancing Algorithms",
+    "url": "https://samwho.dev/load-balancing/",
+    "description": "A bottom-up, animated guide to HTTP load balancing algorithms."
+  },
+  {
+    "title": "Testing TypeScript Types",
+    "url": "https://twitter.com/mattpocockuk/status/1646452575665893377",
+    "description": ""
+  },
+  {
+    "title": "TS Pattern Matching",
+    "url": "https://twitter.com/nicoespeon/status/1644342570389061634",
+    "description": "The exhaustive Pattern Matching library for TypeScript, with smart type inference."
+  },
+  {
+    "title": "React.js Devtools Tutorial",
+    "url": "https://react-devtools-tutorial.vercel.app/",
+    "description": "Learn the features of React.js devtools"
+  },
+  {
+    "title": "Pretty Cache Header",
+    "url": "https://github.com/jjenzz/pretty-cache-header",
+    "description": "Cache-control header utility that parses human readable time strings into seconds"
+  },
+  {
+    "title": "SVG Sprites",
+    "url": "https://benadam.me/thoughts/react-svg-sprites/",
+    "description": "The best way to manage SVG icons in React.js"
+  },
+  {
+    "title": "Auto-Filling CSS Grid",
+    "url": "https://css-tricks.com/an-auto-filling-css-grid-with-max-columns/",
+    "description": "An Auto-Filling CSS Grid With Max Columns of a Minimum Size"
+  },
+  {
+    "title": "Fluid Type Calculator",
+    "url": "https://utopia.fyi/type/calculator",
+    "description": "Elegantly scale type and space without breakpoints"
+  },
+  {
+    "title": "Patterns",
+    "url": "https://www.patterns.dev/",
+    "description": "Design patterns and component patterns for building powerful web apps with vanilla JavaScript and React"
+  },
+  {
+    "title": "Next.js API Routes Rate Limit",
+    "url": "https://nextjs-rate-limit.vercel.app/",
+    "description": "Next.js API routes rate limiting using LRU cache"
+  },
+  {
+    "title": "React TypeScript Cheatsheet",
+    "url": "https://react-typescript-cheatsheet.netlify.app/",
+    "description": "Cheatsheets for experienced React developers getting started with TypeScript"
+  }
+]
