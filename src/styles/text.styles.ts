@@ -22,7 +22,7 @@ export const heading = cva('tracking-tight', {
 			h6: 'text-base md:leading-tight',
 		},
 		weight: { regular: 'font-normal', semibold: 'font-semibold', bold: 'font-bold' },
-		color: { primary: 'text-ds-neutral-950', secondary: 'text-text-primary', tertiary: 'text-text-muted' },
+		color: { primary: 'text-text-primary', secondary: 'text-text-primary', tertiary: 'text-text-muted' },
 	},
 	defaultVariants: { level: 'h2', weight: 'regular', color: 'primary' },
 });
@@ -35,7 +35,7 @@ export const linkText = cva('transition-colors underline-offset-4', {
 	variants: {
 		underline: { initial: 'underline', hover: 'hover:underline' },
 		color: {
-			action: 'text-accent hover:text-ds-cobalt-700 active:text-ds-cobalt-700',
+			action: 'text-accent hover:text-accent-hover active:text-accent-hover',
 			primary: 'text-text-primary hover:text-accent active:text-accent',
 			inherit: 'text-inherit',
 		},
