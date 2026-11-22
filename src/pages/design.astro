@@ -1,0 +1,313 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Main.astro";
+import { createMetaTitle } from "../helpers/seo.helpers";
+import { heading, label, text } from "../styles/text.styles";
+import { cn } from "../helpers/cn";
+
+const description =
+  "A reference for the fonts, colors, and typography used across Brett Smith’s website.";
+const eyebrow = `${label} ${text({ size: "xs", color: "secondary" })}`;
+
+const palettes = [
+  {
+    name: "Cobalt",
+    description: "The primary accent for links, focus, and interactive states.",
+    shades: [
+      ["50", "#eff3ff"],
+      ["100", "#dfe7ff"],
+      ["200", "#c4d2ff"],
+      ["300", "#9db5ff"],
+      ["400", "#7292ff"],
+      ["500", "#4b73f5"],
+      ["600", "#315fea"],
+      ["700", "#254bc7"],
+      ["800", "#203ea1"],
+      ["900", "#1e347d"],
+      ["950", "#172653"],
+    ],
+  },
+  {
+    name: "Neutral",
+    description: "A quiet green gray scale for surfaces, text, and borders.",
+    shades: [
+      ["50", "#f4f5f3"],
+      ["100", "#dde1dc"],
+      ["200", "#d0d5cf"],
+      ["300", "#b8beb7"],
+      ["400", "#858a85"],
+      ["500", "#686e68"],
+      ["600", "#515751"],
+      ["700", "#3c423d"],
+      ["800", "#222522"],
+      ["900", "#191c19"],
+      ["950", "#101210"],
+    ],
+  },
+] as const;
+
+const typeSamples = [
+  {
+    name: "Heading 1",
+    level: "h1",
+    detail: "30 / 1.1 → 48 / 1.05 · 400",
+    sample: "Thoughtful software, made well.",
+  },
+  {
+    name: "Heading 2",
+    level: "h2",
+    detail: "30 / 1.1 → 36 / 1.1 · 400",
+    sample: "A clear point of view.",
+  },
+  {
+    name: "Heading 3",
+    level: "h3",
+    detail: "30 / 1.1 · 400",
+    sample: "Details make the difference.",
+  },
+  {
+    name: "Heading 4",
+    level: "h4",
+    detail: "24 / 1.15 · 400",
+    sample: "Built for people.",
+  },
+  {
+    name: "Heading 5",
+    level: "h5",
+    detail: "20 / 1.25 · 400",
+    sample: "Good work starts with clarity.",
+  },
+  {
+    name: "Heading 6",
+    level: "h6",
+    detail: "16 / 1.25 · 400",
+    sample: "A useful detail.",
+  },
+  {
+    name: "Body",
+    textSize: "default",
+    detail: "16 / 1.5 · 400",
+    sample:
+      "Good interfaces make complex things feel simple. They give content room to breathe and make the next step easy to find.",
+  },
+  {
+    name: "Small",
+    textSize: "sm",
+    detail: "14 / 1.4 · 400",
+    sample: "Supporting text and secondary descriptions.",
+  },
+] as const;
+
+const semanticColors = [
+  {
+    name: "Subtle surface",
+    token: "--color-surface-subtle",
+    hex: "#f4f5f3",
+    usage: "Footer background",
+  },
+  {
+    name: "Surface",
+    token: "--color-surface",
+    hex: "#ffffff",
+    usage: "Cards & panels",
+  },
+  {
+    name: "Text",
+    token: "--color-text-primary",
+    hex: "#191c19",
+    usage: "Primary copy",
+  },
+  {
+    name: "Accent",
+    token: "--color-accent",
+    hex: "#315fea",
+    usage: "Links & actions",
+  },
+] as const;
+---
+
+<Layout title={createMetaTitle("Design System")} description={description}>
+  <Main class="container grid gap-16 md:gap-20">
+    <header class="grid gap-5 border-b border-border-soft pb-10 md:pb-12">
+      <p class={eyebrow}>Design system</p>
+      <h1 class={heading({ level: "h1", weight: "regular" })}>
+        A small system for a consistent web.
+      </h1>
+      <p class={`${text({ size: "lg", color: "secondary" })} max-w-2xl`}>
+        The type, color, and interface foundations behind this site. A practical
+        reference for the details that keep everything feeling like it belongs
+        together.
+      </p>
+    </header>
+
+    <section class="grid gap-6 md:gap-7" aria-labelledby="type-title">
+      <div class="grid gap-2">
+        <p class={eyebrow}>Typography</p>
+        <h2
+          id="type-title"
+          class={heading({ level: "h4", weight: "semibold" })}
+        >
+          Two typefaces, one clear voice.
+        </h2>
+      </div>
+      <div class="grid gap-4 md:grid-cols-2">
+        <article class="grid content-start gap-6 rounded-2xl border border-border-soft bg-surface p-6 md:p-7">
+          <div class="grid gap-3">
+            <p class="font-mono text-xs uppercase tracking-wider text-text-muted">
+              Primary typeface
+            </p>
+            <h3 class={heading({ level: "h3", weight: "semibold" })}>
+              Uncut Sans
+            </h3>
+            <p class={text({ size: "sm", color: "secondary" })}>
+              The voice of the interface: clear, warm, and quietly expressive.
+            </p>
+          </div>
+          <dl class="grid gap-3 border-y border-border-soft py-4 text-sm sm:grid-cols-2">
+            <div>
+              <dt class="text-xs text-text-muted">Style</dt>
+              <dd class="mt-1 font-medium">Variable sans serif</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-text-muted">Weight range</dt>
+              <dd class="mt-1 font-medium">100–900</dd>
+            </div>
+            <div class="sm:col-span-2">
+              <dt class="text-xs text-text-muted">Used for</dt>
+              <dd class="mt-1 font-medium">
+                Headings, body copy, and interface text
+              </dd>
+            </div>
+            <div class="sm:col-span-2">
+              <dt class="text-xs text-text-muted">Character set</dt>
+              <dd class={`${text({ size: "sm" })} mt-1 break-all`}>
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+                abcdefghijklmnopqrstuvwxyz<br />
+                0123456789
+              </dd>
+            </div>
+          </dl>
+        </article>
+        <article class="grid content-start gap-6 rounded-2xl border border-border-soft bg-surface p-6 md:p-7">
+          <div class="grid gap-3">
+            <p class="font-mono text-xs uppercase tracking-wider text-text-muted">
+              Supporting typeface
+            </p>
+            <h3
+              class={`${heading({ level: "h3", weight: "semibold" })} font-mono`}
+            >
+              Fragment Mono
+            </h3>
+            <p class={text({ size: "sm", color: "secondary" })}>
+              A precise counterpoint for labels and small moments of technical
+              texture.
+            </p>
+          </div>
+          <dl class="grid gap-3 border-y border-border-soft py-4 text-sm sm:grid-cols-2">
+            <div>
+              <dt class="text-xs text-text-muted">Style</dt>
+              <dd class="mt-1 font-medium">Monospaced</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-text-muted">Weight</dt>
+              <dd class="mt-1 font-medium">400</dd>
+            </div>
+            <div class="sm:col-span-2">
+              <dt class="text-xs text-text-muted">Used for</dt>
+              <dd class="mt-1 font-medium">Compact labels and details</dd>
+            </div>
+            <div class="sm:col-span-2">
+              <dt class="text-xs text-text-muted">Character set</dt>
+              <dd class={cn(text({ size: "sm" }), "mt-1 break-all font-mono")}>
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+                abcdefghijklmnopqrstuvwxyz<br />
+                0123456789
+              </dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-border-soft bg-surface">
+        {typeSamples.map((item) => (
+          <div class="grid gap-4 border-b border-border-soft px-5 py-6 last:border-0 sm:px-7 sm:py-7">
+            <p
+              class={
+                "level" in item
+                  ? heading({ level: item.level })
+                  : text({
+                      size: item.textSize,
+                      lineHeight: item.textSize === "sm" ? "small" : null,
+                    })
+              }
+            >
+              {item.sample}
+            </p>
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-border-soft pt-3">
+              <p class={text({ size: "sm", weight: "medium" })}>{item.name}</p>
+              <p class="font-mono text-xs text-text-muted">{item.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="grid gap-6 md:gap-7" aria-labelledby="colors-title">
+      <div class="grid gap-2">
+        <p class={eyebrow}>Color</p>
+        <h2
+          id="colors-title"
+          class={heading({ level: "h4", weight: "semibold" })}
+        >
+          A little color goes a long way.
+        </h2>
+        <p class={`${text({ size: "sm", color: "secondary" })} max-w-2xl`}>
+          Cobalt carries interactive moments. Neutrals do the quieter work. The
+          semantic colors adapt automatically when the site switches themes.
+        </p>
+      </div>
+      {palettes.map((palette) => (
+        <article class="rounded-2xl border border-border-soft bg-surface p-5 sm:p-6 md:p-7">
+          <div class="mb-5 grid gap-1.5">
+            <h3 class="font-medium">{palette.name}</h3>
+            <p class={text({ size: "sm", color: "secondary" })}>
+              {palette.description}
+            </p>
+          </div>
+          <div class="grid grid-cols-4 gap-x-3 gap-y-4 sm:grid-cols-6 lg:grid-cols-11">
+            {palette.shades.map(([shade, hex]) => (
+              <div class="min-w-0">
+                <div
+                  class="aspect-square rounded-lg border border-black/5"
+                  style={`background:${hex}`}
+                ></div>
+                <p class="mt-2 font-mono text-xs text-text-muted">{shade}</p>
+                <p class="font-mono text-xs text-text-muted">{hex}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+      ))}
+      <div class="grid gap-4 sm:grid-cols-2">
+        {semanticColors.map(({ name, token, hex, usage }) => (
+          <article class="grid content-start gap-5 rounded-2xl border border-border-soft bg-surface p-5 sm:p-6">
+            <div class="grid grid-cols-[3.5rem_1fr] items-start gap-4">
+              <div
+                class="size-14 rounded-xl border border-black/10"
+                style={`background:${hex}`}
+                aria-hidden="true"
+              ></div>
+              <div class="grid gap-1.5">
+                <h3 class="text-lg font-medium">{name}</h3>
+                <p class="text-sm text-text-muted">{usage}</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-border-soft pt-3 font-mono text-xs text-text-muted">
+              <span>{token}</span>
+              <span>{hex}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </Main>
+</Layout>

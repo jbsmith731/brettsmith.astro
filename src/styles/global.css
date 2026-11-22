@@ -41,7 +41,7 @@
 	--color-ds-black: #000;
 
 	/* Semantic aliases mapped to the current design palette */
-	--color-bg: var(--color-ds-neutral-50);
+	--color-surface-subtle: var(--color-ds-neutral-50);
 	--color-surface: var(--color-ds-white);
 	--color-border-soft: var(--color-ds-neutral-100);
 	--color-border: var(--color-ds-neutral-200);
@@ -56,7 +56,7 @@
 
 :root[data-theme='dark'] {
 	color-scheme: dark;
-	--color-bg: var(--color-ds-neutral-950);
+	--color-surface-subtle: var(--color-ds-neutral-950);
 	--color-surface: var(--color-ds-neutral-900);
 	--color-border-soft: var(--color-ds-neutral-800);
 	--color-border: var(--color-ds-neutral-700);

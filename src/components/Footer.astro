@@ -1,13 +1,51 @@
 ---
-import { SOCIAL_LINKS } from '../constants/seo.constants';
-import { linkText } from '../styles/text.styles';
+import { SOCIAL_LINKS } from "../constants/seo.constants";
+import { linkText } from "../styles/text.styles";
 ---
 
-<footer class="container flex items-center justify-between gap-4 py-4 text-sm max-sm:flex-col-reverse md:py-8">
-	<p>&copy; {new Date().getFullYear()} Brett Smith</p>
-	<ul class="flex gap-4">
-		{SOCIAL_LINKS.map((link) => (
-			<li><a href={link.url} target="_blank" rel="noopener noreferrer" class={linkText({ color: 'primary' })}>{link.name}</a></li>
-		))}
-	</ul>
+<footer class="mt-8 border-t border-border-soft bg-surface-subtle">
+  <div class="container grid gap-8 py-8 sm:grid-cols-[1fr_auto] sm:items-end md:py-10">
+    <div class="grid gap-2">
+      <a
+        href="/"
+        class="w-fit text-lg font-medium tracking-tight text-text-primary transition-colors hover:text-accent"
+      >
+        B<span class="text-accent">.</span>
+      </a>
+      <p class="text-sm text-text-muted max-w-[25ch]">
+        Software engineer building useful things for the web.
+      </p>
+      <p class="mt-3 font-mono text-xs uppercase tracking-wider text-text-muted">
+        &copy; {new Date().getFullYear()} Brett Smith
+      </p>
+    </div>
+
+    <nav
+      aria-label="Footer navigation"
+      class="flex flex-wrap gap-x-5 gap-y-3 text-sm"
+    >
+      <a href="/bookmarks" class={linkText({ color: "primary" })}>
+        Bookmarks
+      </a>
+      <a href="/design" class={linkText({ color: "primary" })}>
+        Design system
+      </a>
+      <a href="mailto:hi@brettsmith.me" class={linkText({ color: "primary" })}>
+        Contact
+      </a>
+      {SOCIAL_LINKS.map((link) => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={linkText({ color: "primary" })}
+        >
+          {link.name}
+          <span aria-hidden="true" class="ml-1 text-text-muted">
+            ↗
+          </span>
+        </a>
+      ))}
+    </nav>
+  </div>
 </footer>

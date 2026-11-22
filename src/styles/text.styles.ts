@@ -5,6 +5,7 @@ export const text = cva([], {
 		size: { xs: 'text-xs', sm: 'text-sm', default: 'text-base', lg: 'text-lg', xl: 'text-xl' },
 		weight: { regular: 'font-normal', medium: 'font-medium', semibold: 'font-semibold' },
 		color: { primary: 'text-text-primary', secondary: 'text-text-muted', tertiary: 'text-ds-neutral-600' },
+		lineHeight: { small: 'leading-[1.4]' },
 	},
 	defaultVariants: { size: 'default', weight: 'regular', color: 'primary' },
 });
