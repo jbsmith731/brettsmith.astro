@@ -1,0 +1,167 @@
+---
+import { cva } from "cva";
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Main.astro";
+import books from "../data/books.json";
+import type { Book, BooksByYear, ReadingStatus } from "../data/books.types";
+import { cn } from "../helpers/cn";
+import { createMetaTitle } from "../helpers/seo.helpers";
+import { heading, label, text } from "../styles/text.styles";
+
+const description =
+  "A shelf of books I’m reading, have read, and plan to read.";
+const booksByYear = books as BooksByYear;
+const years = Object.keys(booksByYear).sort((a, b) => Number(b) - Number(a));
+const statusLabel: Record<ReadingStatus, string> = {
+  reading: "Reading",
+  complete: "Read",
+  "not started": "To read",
+  "did not finish": "Paused",
+};
+const statusStyles = cva(
+  "inline-flex items-center gap-1.5 font-mono text-xs text-text-muted before:size-1.5 before:rounded-full before:content-['']",
+  {
+    variants: {
+      status: {
+        reading: "before:bg-text-muted",
+        complete: "before:bg-accent",
+        "not started": "before:border before:border-text-muted",
+        "did not finish": "before:border before:border-text-muted",
+      },
+    },
+  },
+);
+---
+
+<Layout title={createMetaTitle("Reading")} description={description}>
+  <Main class="container grid content-start gap-12 md:gap-16">
+    <header class="grid gap-3">
+      <p class={cn(label, text({ size: "xs", color: "secondary" }))}>
+        The bookshelf
+      </p>
+      <h1 class={heading({ level: "h1", weight: "regular" })}>Reading</h1>
+      <p
+        class={cn(
+          text({ size: "lg", color: "secondary" }),
+          "max-w-xl text-pretty",
+        )}
+      >
+        A small shelf of things I&apos;ve read, am reading, and want to get to.
+      </p>
+    </header>
+
+    {years.map((year) => {
+      const yearBooks: Book[] = booksByYear[year];
+
+      return (
+        <section class="grid gap-5" aria-labelledby={`year-${year}`}>
+          <div class="flex items-baseline justify-between gap-4 border-b border-border-soft pb-3">
+            <h2 id={`year-${year}`} class="font-mono text-xs text-text-muted">
+              {year}
+            </h2>
+            <p class={text({ size: "sm", color: "secondary" })}>
+              {yearBooks.length} {yearBooks.length === 1 ? "book" : "books"}
+            </p>
+          </div>
+          <ul>
+            {yearBooks.map((book) => (
+              <li
+                class={cn(
+                  "grid gap-6 py-7 first:pt-0 last:pb-0",
+                  "sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-8",
+                  "md:grid-cols-[10rem_minmax(0,1fr)] md:gap-10",
+                )}
+              >
+                <div
+                  class={cn(
+                    "flex aspect-square w-full max-w-40 items-center justify-center",
+                    "overflow-hidden rounded-xl bg-surface-subtle p-5",
+                    "sm:max-w-none md:p-6",
+                  )}
+                >
+                  {book.cover ? (
+                    <img
+                      src={book.cover.path}
+                      alt={`Cover of ${book.title}`}
+                      loading="lazy"
+                      decoding="async"
+                      class="block h-full w-auto max-w-full object-contain shadow-lg"
+                    />
+                  ) : (
+                    <div
+                      class={cn(
+                        "grid aspect-[2/3] h-full max-h-36 place-items-center",
+                        "border border-border-soft bg-surface px-3 text-center shadow-sm",
+                      )}
+                    >
+                      <span class={text({ size: "sm", color: "secondary" })}>
+                        {book.title}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div class="grid content-start justify-items-start gap-2 py-1">
+                  <header class="grid gap-1">
+                    <span class={statusStyles({ status: book.status })}>
+                      {statusLabel[book.status]}
+                    </span>
+                    <div>
+                      <h3
+                        class={cn(
+                          heading({ level: "h4", weight: "medium" }),
+                          "text-pretty",
+                        )}
+                      >
+                        {book.title}
+                      </h3>
+                      {book.subtitle && (
+                        <p
+                          class={cn(
+                            text({ size: "default", color: "secondary" }),
+                            "text-pretty",
+                          )}
+                        >
+                          {book.subtitle}
+                        </p>
+                      )}
+                      <p class={text({ size: "sm", weight: "medium" })}>
+                        by {book.authors.join(", ")}
+                      </p>
+                    </div>
+                  </header>
+                  {book.genres?.length ? (
+                    <ul
+                      class="flex flex-wrap items-center text-xs text-text-muted"
+                      aria-label="Genres"
+                    >
+                      {book.genres.slice(0, 3).map((genre, index) => (
+                        <li>
+                          {index > 0 && (
+                            <span class="mx-2 text-border" aria-hidden="true">
+                              •
+                            </span>
+                          )}
+                          {genre}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  {book.description && (
+                    <p
+                      class={cn(
+                        text({ color: "secondary" }),
+                        "max-w-2xl text-pretty",
+                      )}
+                    >
+                      {book.description}
+                    </p>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      );
+    })}
+  </Main>
+</Layout>

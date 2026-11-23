@@ -1,18 +1,50 @@
 ---
-import { twMerge } from 'tailwind-merge';
-import { linkText } from '../styles/text.styles';
-import LogoMark from './LogoMark.astro';
+import { twMerge } from "tailwind-merge";
+import { linkText } from "../styles/text.styles";
+import LogoMark from "./LogoMark.astro";
 ---
 
 <header class="sticky top-0 z-50 backdrop-blur-lg">
-	<div class="container flex h-16 items-center justify-between">
-		<LogoMark />
+  <div class="container flex h-16 items-center justify-between">
+    <LogoMark />
 
-		<nav aria-label="Main navigation">
-			<ul class="flex gap-6">
-				<li><a href="/bookmarks" class={twMerge(linkText({ color: 'primary' }), 'aria-[current=page]:line-through decoration-accent decoration-[1.5px]')} aria-current={Astro.url.pathname === '/bookmarks' ? 'page' : undefined}>Bookmarks</a></li>
-				<li><a href="mailto:hi@brettsmith.me" class={linkText({ color: 'primary' })}>Contact</a></li>
-			</ul>
-		</nav>
-	</div>
+    <nav aria-label="Main navigation">
+      <ul class="flex gap-6">
+        <li>
+          <a
+            href="/reading"
+            class={twMerge(
+              linkText({ color: "primary" }),
+              "aria-[current=page]:line-through decoration-accent decoration-[1.5px]",
+            )}
+            aria-current={Astro.url.pathname === "/reading" ? "page" : undefined}
+          >
+            Reading
+          </a>
+        </li>
+        <li>
+          <a
+            href="/bookmarks"
+            class={twMerge(
+              linkText({ color: "primary" }),
+              "aria-[current=page]:line-through decoration-accent decoration-[1.5px]",
+            )}
+            aria-current={
+              Astro.url.pathname === "/bookmarks" ? "page" : undefined
+            }
+          >
+            Bookmarks
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:hi@brettsmith.me"
+            class={linkText({ color: "primary" })}
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>

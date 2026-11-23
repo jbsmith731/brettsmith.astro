@@ -14,6 +14,7 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - Use semantic design tokens for colors and other themed values instead of raw palette values or hard-coded colors.
 - Use `cn` to combine and Tailwind-merge class names. Split long class strings into readable groups passed to `cn`.
 - Avoid Astro `class:list` when combining classes that may conflict; use `cn` so Tailwind utilities are merged consistently.
+- Do not make unrequested typography changes. When using typography CVA variants, keep their configured leading; do not override or adjust line-height with additional classes.
 - Use scoped component CSS for component-specific keyframes or behavior that does not fit Tailwind utilities; use `src/styles/global.css` for shared styles and animation definitions.
 
 ## Documentation

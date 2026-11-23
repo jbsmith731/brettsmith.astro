@@ -1,0 +1,140 @@
+{
+  "2026": [
+    {
+      "title": "Dark Wire",
+      "subtitle": "The Incredible True Story of the Largest Sting Operation Ever",
+      "authors": ["Joseph Cox"],
+      "genres": ["Law Enforcement", "Security", "True Crime"],
+      "description": "The inside story of a global law-enforcement sting in which the FBI created a technology company to wiretap criminal networks. Drawing on the people involved, Joseph Cox reveals the scale and stakes of the operation.",
+      "identifiers": {
+        "isbn10": "1541702719",
+        "isbn13": "9781541702714"
+      },
+      "publication": {
+        "publisher": "PublicAffairs",
+        "date": "2024",
+        "format": "ebook",
+        "pages": 352,
+        "language": "eng"
+      },
+      "status": "reading",
+      "cover": {
+        "path": "/books/9781541702714.jpg",
+        "sourceUrl": "https://books.google.com/books/content?id=L9faEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+        "source": "Google Books"
+      },
+      "sources": [
+        { "provider": "Google Books", "url": "https://books.google.com/books/about/Dark_Wire.html?id=L9faEAAAQBAJ" },
+        { "provider": "Kobo", "url": "https://www.kobo.com/us/en/ebook/dark-wire" }
+      ],
+      "retrievedAt": "2026-11-22T00:00:00.000Z"
+    },
+    {
+      "title": "Carl’s Doomsday Scenario",
+      "subtitle": "Dungeon Crawler Carl Book 2",
+      "authors": ["Matt Dinniman"],
+      "genres": ["LitRPG", "science fantasy"],
+      "description": "The dungeon grows more dangerous as Carl and Princess Donut fight to survive the Over City, a ruined metropolis full of deadly threats and mysteries.",
+      "publication": {
+        "publisher": "Dandy House",
+        "date": "2021-01-06",
+        "format": "ebook",
+        "language": "eng"
+      },
+      "status": "did not finish",
+      "cover": {
+        "path": "/books/carls-doomsday-scenario.jpg",
+        "sourceUrl": "https://covers.openlibrary.org/b/olid/OL33026470M-L.jpg",
+        "source": "Open Library"
+      },
+      "sources": [
+        { "provider": "Open Library", "url": "https://openlibrary.org/books/OL33026470M/Carl%E2%80%99s_Doomsday_Scenario" }
+      ],
+      "retrievedAt": "2026-11-22T00:00:00.000Z"
+    },
+    {
+      "title": "Dungeon Crawler Carl",
+      "subtitle": "Dungeon Crawler Carl Book 1",
+      "authors": ["Matt Dinniman"],
+      "genres": ["LitRPG", "science fantasy"],
+      "description": "After an alien invasion destroys civilization, Carl and his ex-girlfriend’s cat, Princess Donut, must survive a trap-filled dungeon built for an intergalactic game show.",
+      "identifiers": {
+        "asin": "B08BKGYQXW"
+      },
+      "publication": {
+        "publisher": "Dandy House",
+        "date": "2020-10-02",
+        "format": "ebook",
+        "pages": 446,
+        "language": "eng"
+      },
+      "status": "complete",
+      "cover": {
+        "path": "/books/dungeon-crawler-carl.jpg",
+        "sourceUrl": "https://covers.openlibrary.org/b/olid/OL32618729M-L.jpg",
+        "source": "Open Library"
+      },
+      "sources": [
+        { "provider": "Open Library", "url": "https://openlibrary.org/books/OL32618729M/Dungeon_Crawler_Carl" }
+      ],
+      "retrievedAt": "2026-11-22T00:00:00.000Z"
+    },
+    {
+      "title": "This Is How They Tell Me the World Ends",
+      "subtitle": "The Cyberweapons Arms Race",
+      "authors": ["Nicole Perlroth"],
+      "genres": ["Political Science", "International Relations", "Arms Control"],
+      "description": "Filled with spies, hackers, arms dealers, and a few unsung heroes, this is an account of the cyberweapons market and the global cyber arms race. Based on years of reporting and hundreds of interviews, Nicole Perlroth examines the market and the threat it poses.",
+      "identifiers": {
+        "isbn10": "1635576067",
+        "isbn13": "9781635576061"
+      },
+      "publication": {
+        "publisher": "Bloomsbury Publishing USA",
+        "date": "2021",
+        "format": "ebook",
+        "pages": 528,
+        "language": "eng"
+      },
+      "status": "complete",
+      "cover": {
+        "path": "/books/9781635576061.jpg",
+        "sourceUrl": "https://books.google.com/books/content?id=6H_dDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+        "source": "Google Books"
+      },
+      "sources": [
+        { "provider": "Google Books", "url": "https://books.google.com/books/about/This_Is_How_They_Tell_Me_the_World_Ends.html?id=6H_dDwAAQBAJ" },
+        { "provider": "Bloomsbury", "url": "https://www.bloomsbury.com/us/this-is-how-they-tell-me-the-world-ends-9781635576061/" }
+      ],
+      "retrievedAt": "2026-11-22T00:00:00.000Z"
+    },
+    {
+      "title": "Tracers in the Dark",
+      "subtitle": "The Global Hunt for the Crime Lords of Cryptocurrency",
+      "authors": ["Andy Greenberg"],
+      "genres": ["cryptocurrency", "cyber-crime", "black markets", "law enforcement", "technology", "computers"],
+      "description": "With unprecedented access to major players in federal law enforcement and private industry, cybersecurity reporter Andy Greenberg tells the story of criminal empires built and dismantled through cryptocurrency tracing.",
+      "identifiers": {
+        "isbn10": "0385548109",
+        "isbn13": "9780385548106"
+      },
+      "publication": {
+        "publisher": "Knopf Doubleday Publishing Group",
+        "date": "2022",
+        "format": "ebook",
+        "language": "eng"
+      },
+      "status": "complete",
+      "cover": {
+        "path": "/books/9780385548106.jpg",
+        "sourceUrl": "https://covers.openlibrary.org/b/olid/OL38060930M-L.jpg",
+        "source": "Open Library"
+      },
+      "sources": [
+        { "provider": "Open Library", "url": "https://openlibrary.org/books/OL38060661M/Tracers_in_the_Dark" },
+        { "provider": "VitalSource", "url": "https://www.vitalsource.com/products/tracers-in-the-dark-andy-greenberg-v9780385548106" }
+      ],
+      "retrievedAt": "2026-11-22T00:00:00.000Z"
+    }
+  ]
+}

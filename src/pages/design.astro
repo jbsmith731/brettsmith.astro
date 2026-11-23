@@ -62,25 +62,25 @@ const typeSamples = [
   {
     name: "Heading 3",
     level: "h3",
-    detail: "30 / 1.1 · 400",
+    detail: "30 / 1.1 · 500",
     sample: "Details make the difference.",
   },
   {
     name: "Heading 4",
     level: "h4",
-    detail: "24 / 1.15 · 400",
+    detail: "24 / 1.15 · 500",
     sample: "Built for people.",
   },
   {
     name: "Heading 5",
     level: "h5",
-    detail: "20 / 1.25 · 400",
+    detail: "20 / 1.25 · 500",
     sample: "Good work starts with clarity.",
   },
   {
     name: "Heading 6",
     level: "h6",
-    detail: "16 / 1.25 · 400",
+    detail: "16 / 1.25 · 500",
     sample: "A useful detail.",
   },
   {
@@ -124,6 +124,37 @@ const semanticColors = [
     usage: "Links & actions",
   },
 ] as const;
+
+const characterSet = [
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "abcdefghijklmnopqrstuvwxyz",
+  "0123456789",
+];
+
+const fontCards = [
+  {
+    role: "Primary typeface",
+    name: "Uncut Sans",
+    description:
+      "The voice of the interface: clear, warm, and quietly expressive.",
+    style: "Variable sans serif",
+    weightLabel: "Weight range",
+    weight: "100–900",
+    usage: "Headings, body copy, and interface text",
+    mono: false,
+  },
+  {
+    role: "Supporting typeface",
+    name: "Fragment Mono",
+    description:
+      "A precise counterpoint for labels and small moments of technical texture.",
+    style: "Monospaced",
+    weightLabel: "Weight",
+    weight: "400",
+    usage: "Compact labels and details",
+    mono: true,
+  },
+] as const;
 ---
 
 <Layout title={createMetaTitle("Design System")} description={description}>
@@ -151,81 +182,52 @@ const semanticColors = [
         </h2>
       </div>
       <div class="grid gap-4 md:grid-cols-2">
-        <article class="grid content-start gap-6 rounded-2xl border border-border-soft bg-surface p-6 md:p-7">
-          <div class="grid gap-3">
-            <p class="font-mono text-xs uppercase tracking-wider text-text-muted">
-              Primary typeface
-            </p>
-            <h3 class={heading({ level: "h3", weight: "semibold" })}>
-              Uncut Sans
-            </h3>
-            <p class={text({ size: "sm", color: "secondary" })}>
-              The voice of the interface: clear, warm, and quietly expressive.
-            </p>
-          </div>
-          <dl class="grid gap-3 border-y border-border-soft py-4 text-sm sm:grid-cols-2">
-            <div>
-              <dt class="text-xs text-text-muted">Style</dt>
-              <dd class="mt-1 font-medium">Variable sans serif</dd>
+        {fontCards.map((font) => (
+          <article class="grid content-start gap-6 rounded-2xl border border-border-soft bg-surface p-6 md:p-7">
+            <div class="grid gap-3">
+              <p class="font-mono text-xs uppercase tracking-wider text-text-muted">
+                {font.role}
+              </p>
+              <h3
+                class={cn(
+                  heading({ level: "h3", weight: "medium" }),
+                  font.mono && "font-mono",
+                )}
+              >
+                {font.name}
+              </h3>
+              <p class={text({ size: "sm", color: "secondary" })}>
+                {font.description}
+              </p>
             </div>
-            <div>
-              <dt class="text-xs text-text-muted">Weight range</dt>
-              <dd class="mt-1 font-medium">100–900</dd>
-            </div>
-            <div class="sm:col-span-2">
-              <dt class="text-xs text-text-muted">Used for</dt>
-              <dd class="mt-1 font-medium">
-                Headings, body copy, and interface text
-              </dd>
-            </div>
-            <div class="sm:col-span-2">
-              <dt class="text-xs text-text-muted">Character set</dt>
-              <dd class={`${text({ size: "sm" })} mt-1 break-all`}>
-                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
-                abcdefghijklmnopqrstuvwxyz<br />
-                0123456789
-              </dd>
-            </div>
-          </dl>
-        </article>
-        <article class="grid content-start gap-6 rounded-2xl border border-border-soft bg-surface p-6 md:p-7">
-          <div class="grid gap-3">
-            <p class="font-mono text-xs uppercase tracking-wider text-text-muted">
-              Supporting typeface
-            </p>
-            <h3
-              class={`${heading({ level: "h3", weight: "semibold" })} font-mono`}
-            >
-              Fragment Mono
-            </h3>
-            <p class={text({ size: "sm", color: "secondary" })}>
-              A precise counterpoint for labels and small moments of technical
-              texture.
-            </p>
-          </div>
-          <dl class="grid gap-3 border-y border-border-soft py-4 text-sm sm:grid-cols-2">
-            <div>
-              <dt class="text-xs text-text-muted">Style</dt>
-              <dd class="mt-1 font-medium">Monospaced</dd>
-            </div>
-            <div>
-              <dt class="text-xs text-text-muted">Weight</dt>
-              <dd class="mt-1 font-medium">400</dd>
-            </div>
-            <div class="sm:col-span-2">
-              <dt class="text-xs text-text-muted">Used for</dt>
-              <dd class="mt-1 font-medium">Compact labels and details</dd>
-            </div>
-            <div class="sm:col-span-2">
-              <dt class="text-xs text-text-muted">Character set</dt>
-              <dd class={cn(text({ size: "sm" }), "mt-1 break-all font-mono")}>
-                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
-                abcdefghijklmnopqrstuvwxyz<br />
-                0123456789
-              </dd>
-            </div>
-          </dl>
-        </article>
+            <dl class="grid gap-3 border-t border-border-soft pt-4 text-sm sm:grid-cols-2">
+              <div>
+                <dt class="text-xs text-text-muted">Style</dt>
+                <dd class="mt-1 font-medium">{font.style}</dd>
+              </div>
+              <div>
+                <dt class="text-xs text-text-muted">{font.weightLabel}</dt>
+                <dd class="mt-1 font-medium">{font.weight}</dd>
+              </div>
+              <div class="sm:col-span-2">
+                <dt class="text-xs text-text-muted">Used for</dt>
+                <dd class="mt-1 font-medium">{font.usage}</dd>
+              </div>
+              <div class="sm:col-span-2">
+                <dt class="text-xs text-text-muted">Character set</dt>
+                <dd
+                  class={cn(
+                    text({ size: "sm" }),
+                    "mt-1 break-all",
+                    font.mono && "font-mono",
+                  )}
+                >
+                  {characterSet.map((line) => <>{line}<br /></>)}
+                </dd>
+              </div>
+            </dl>
+          </article>
+        ))}
       </div>
       <div class="overflow-hidden rounded-2xl border border-border-soft bg-surface">
         {typeSamples.map((item) => (
@@ -233,7 +235,13 @@ const semanticColors = [
             <p
               class={
                 "level" in item
-                  ? heading({ level: item.level })
+                  ? heading({
+                      level: item.level,
+                      weight:
+                        item.level === "h1" || item.level === "h2"
+                          ? "regular"
+                          : "medium",
+                    })
                   : text({
                       size: item.textSize,
                       lineHeight: item.textSize === "sm" ? "small" : null,
