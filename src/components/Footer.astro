@@ -1,17 +1,13 @@
 ---
 import { SOCIAL_LINKS } from "../constants/seo.constants";
 import { linkText } from "../styles/text.styles";
+import LogoMark from "./LogoMark.astro";
 ---
 
 <footer class="mt-8 border-t border-border-soft bg-surface-subtle">
   <div class="container grid gap-8 py-8 sm:grid-cols-[1fr_auto] sm:items-end md:py-10">
     <div class="grid gap-2">
-      <a
-        href="/"
-        class="w-fit text-lg font-medium tracking-tight text-text-primary transition-colors hover:text-accent"
-      >
-        B<span class="text-accent">.</span>
-      </a>
+      <LogoMark />
       <p class="text-sm text-text-muted max-w-[25ch]">
         Software engineer building useful things for the web.
       </p>

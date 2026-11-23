@@ -8,6 +8,14 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Styling
+
+- Lean on Tailwind utility classes as much as possible for styling.
+- Use semantic design tokens for colors and other themed values instead of raw palette values or hard-coded colors.
+- Use `cn` to combine and Tailwind-merge class names. Split long class strings into readable groups passed to `cn`.
+- Avoid Astro `class:list` when combining classes that may conflict; use `cn` so Tailwind utilities are merged consistently.
+- Use scoped component CSS for component-specific keyframes or behavior that does not fit Tailwind utilities; use `src/styles/global.css` for shared styles and animation definitions.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build

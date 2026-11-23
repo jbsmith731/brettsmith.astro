@@ -1,0 +1,63 @@
+---
+import { cn } from "../helpers/cn";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<a
+  href="/"
+  aria-label="Brett Smith home"
+  class={cn(
+    "logo-mark relative inline-flex p-2 -m-2 text-text-primary",
+    className,
+  )}
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="18"
+    fill="none"
+    viewBox="0 0 20 18"
+    aria-hidden="true"
+    class="overflow-visible"
+  >
+    <path
+      fill="currentColor"
+      d="M0 17.16V0h8.328c3.576 0 5.448 1.392 5.448 4.32 0 2.112-1.248 3.168-2.664 3.648v.048c1.8.312 3.336 1.512 3.336 4.08 0 3.648-2.328 5.064-5.88 5.064zM4.32 6.936H7.2c1.2 0 2.16-.288 2.16-1.704S8.4 3.528 7.2 3.528H4.32zm0 6.696h3c1.8 0 2.712-.432 2.712-2.04S9.12 9.576 7.32 9.576h-3z"
+    />
+    <circle
+      class="fill-accent transform-view origin-[36%_48%]"
+      cx="18"
+      cy="15"
+      r="2"
+    />
+  </svg>
+</a>
+
+<style>
+  .logo-mark:hover circle,
+  .logo-mark:focus-visible circle {
+    animation: logo-orbit 820ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  @keyframes logo-orbit {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-mark:hover circle,
+    .logo-mark:focus-visible circle {
+      animation: none;
+    }
+  }
+</style>
