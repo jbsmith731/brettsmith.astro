@@ -1,8 +1,13 @@
 ---
-import { twMerge } from 'tailwind-merge';
+import { cn } from "../helpers/cn";
+
+interface Props {
+  class?: string;
+}
+
 const { class: className, ...props } = Astro.props;
 ---
 
-<main {...props} class={twMerge('my-16 md:my-20', className)}>
-	<slot />
+<main {...props} class={cn("container pb-16 md:pb-20", className)}>
+  <slot />
 </main>

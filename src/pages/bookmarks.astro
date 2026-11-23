@@ -1,28 +1,45 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Main from '../components/Main.astro';
-import bookmarks from '../data/bookmarks.json';
-import type { Bookmark } from '../data/bookmarks.types';
-import { createMetaTitle } from '../helpers/seo.helpers';
-import { heading, linkText, text } from '../styles/text.styles';
-import { twMerge } from 'tailwind-merge';
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Main.astro";
+import PageHero from "../components/PageHero.astro";
+import bookmarks from "../data/bookmarks.json";
+import type { Bookmark } from "../data/bookmarks.types";
+import { createMetaTitle } from "../helpers/seo.helpers";
+import { linkText, text } from "../styles/text.styles";
+import { twMerge } from "tailwind-merge";
 
-const description = 'A curated collection of bookmarks featuring useful links, tools, and resources across design, development, and product work.';
+const description =
+  "A curated collection of useful links, tools, and resources across design, development, and product work.";
 const typedBookmarks: Bookmark[] = bookmarks;
 ---
 
-<Layout title={createMetaTitle('Bookmarks')} description={description}>
-	<Main class="container grid gap-12">
-		<h1 class={heading({ level: 'h1', weight: 'regular' })}>Bookmarks</h1>
-		<ul class="grid gap-4 md:gap-8">
-			{typedBookmarks.map((bookmark) => (
-				<li class="link-box grid gap-0.5">
-					<a href={bookmark.url} target="_blank" rel="noopener noreferrer" class={twMerge(linkText({ color: 'primary' }), 'link-overlay text-xl font-medium')}>
-						{bookmark.title} <span aria-hidden="true">↗</span>
-					</a>
-					<p class={text({ color: 'secondary', className: 'max-sm:leading-snug' })}>{bookmark.description}</p>
-				</li>
-			))}
-		</ul>
-	</Main>
+<Layout title={createMetaTitle("Bookmarks")} description={description}>
+  <Main>
+    <PageHero title="Bookmarks" description={description} />
+    <ul class="grid gap-4 md:gap-8">
+      {typedBookmarks.map((bookmark) => (
+        <li class="link-box grid gap-0.5">
+          <a
+            href={bookmark.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class={twMerge(
+              linkText({ color: "primary" }),
+              "link-overlay text-xl font-medium",
+            )}
+          >
+            {bookmark.title} <span aria-hidden="true">↗</span>
+          </a>
+          <p
+            class={text({
+              color: "secondary",
+              className: "max-sm:leading-snug",
+            })}
+          >
+            {bookmark.description}
+          </p>
+        </li>
+      ))}
+    </ul>
+  </Main>
 </Layout>

@@ -1,0 +1,26 @@
+---
+import { cn } from "../helpers/cn";
+import { heading, text } from "../styles/text.styles";
+
+interface Props {
+  title: string;
+  description?: string;
+  class?: string;
+}
+
+const { title, description, class: className } = Astro.props;
+---
+
+<header class={cn("py-12 grid gap-3 md:py-16", className)}>
+  <h1 class={heading({ level: "h1", weight: "regular" })}>{title}</h1>
+  {description && (
+    <p
+      class={cn(
+        text({ size: "lg", color: "secondary" }),
+        "max-w-xl text-pretty",
+      )}
+    >
+      {description}
+    </p>
+  )}
+</header>

@@ -6,8 +6,8 @@ export const text = cva([], {
       xs: "text-xs",
       sm: "text-sm",
       default: "text-base leading-[1.4]",
-      lg: "text-lg",
-      xl: "text-xl",
+      lg: "text-lg leading-snug",
+      xl: "text-xl leading-tight",
     },
     weight: {
       regular: "font-normal",
