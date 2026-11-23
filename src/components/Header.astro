@@ -17,7 +17,9 @@ import LogoMark from "./LogoMark.astro";
               linkText({ color: "primary" }),
               "aria-[current=page]:line-through decoration-accent decoration-[1.5px]",
             )}
-            aria-current={Astro.url.pathname === "/reading" ? "page" : undefined}
+            aria-current={
+              Astro.url.pathname === "/reading" ? "page" : undefined
+            }
           >
             Reading
           </a>

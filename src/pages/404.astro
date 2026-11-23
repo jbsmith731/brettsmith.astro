@@ -1,15 +1,15 @@
 ---
-import ErrorPage from '../components/ErrorPage.astro';
-import { createMetaTitle } from '../helpers/seo.helpers';
-import Layout from '../layouts/Layout.astro';
+import ErrorPage from "../components/ErrorPage.astro";
+import { createMetaTitle } from "../helpers/seo.helpers";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-	title={createMetaTitle('404')}
-	description="The requested page could not be found."
+  title={createMetaTitle("404")}
+  description="The requested page could not be found."
 >
-	<ErrorPage
-		headingText="404"
-		message="The requested page could not be found."
-	/>
+  <ErrorPage
+    headingText="404"
+    message="The requested page could not be found."
+  />
 </Layout>
