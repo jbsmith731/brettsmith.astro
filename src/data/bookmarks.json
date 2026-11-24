@@ -7,7 +7,7 @@
   {
     "title": "The vertical codebase",
     "url": "https://tkdodo.eu/blog/the-vertical-codebase",
-    "description": ""
+    "description": "Explains how organizing code by functional area keeps related components, hooks, types, and utilities together, improving cohesion and making large codebases easier to navigate."
   },
   {
     "title": "Website hero section library",
@@ -17,7 +17,7 @@
   {
     "title": "CSS Scroll Driven Animation",
     "url": "https://karlkoch.me/writing/on-scroll-driven-animations",
-    "description": ""
+    "description": "Shows how CSS scroll-driven view timelines can power reveal animations, with guidance on choosing animation ranges and keeping content accessible when the effect is unsupported or reduced motion is preferred."
   },
   {
     "title": "Build a serverless API using Cloudflare Workers, Drizzle ORM, and Neon",
@@ -132,7 +132,7 @@
   {
     "title": "Testing TypeScript Types",
     "url": "https://twitter.com/mattpocockuk/status/1646452575665893377",
-    "description": ""
+    "description": "Matt Pocock shares a tip about testing TypeScript types."
   },
   {
     "title": "TS Pattern Matching",
