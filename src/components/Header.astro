@@ -2,6 +2,8 @@
 import { twMerge } from "tailwind-merge";
 import { linkText } from "../styles/text.styles";
 import LogoMark from "./LogoMark.astro";
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <header class="sticky top-0 z-50 backdrop-blur-lg">
@@ -17,9 +19,7 @@ import LogoMark from "./LogoMark.astro";
               linkText({ color: "primary" }),
               "aria-[current=page]:line-through decoration-accent decoration-[1.5px]",
             )}
-            aria-current={
-              Astro.url.pathname === "/reading" ? "page" : undefined
-            }
+            aria-current={pathname === "/reading" ? "page" : undefined}
           >
             Reading
           </a>
@@ -31,9 +31,7 @@ import LogoMark from "./LogoMark.astro";
               linkText({ color: "primary" }),
               "aria-[current=page]:line-through decoration-accent decoration-[1.5px]",
             )}
-            aria-current={
-              Astro.url.pathname === "/bookmarks" ? "page" : undefined
-            }
+            aria-current={pathname === "/bookmarks" ? "page" : undefined}
           >
             Bookmarks
           </a>
