@@ -103,26 +103,50 @@ const semanticColors = [
   {
     name: "Subtle surface",
     token: "--color-surface-subtle",
-    hex: "#f4f5f3",
-    usage: "Footer background",
+    palette: "Neutral 50 · Neutral 950",
+    usage: "Quiet backgrounds",
   },
   {
     name: "Surface",
     token: "--color-surface",
-    hex: "#ffffff",
+    palette: "White · Neutral 900",
     usage: "Cards & panels",
   },
   {
-    name: "Text",
+    name: "Soft border",
+    token: "--color-border-soft",
+    palette: "Neutral 100 · Neutral 800",
+    usage: "Subtle separators",
+  },
+  {
+    name: "Border",
+    token: "--color-border",
+    palette: "Neutral 200 · Neutral 700",
+    usage: "Defined boundaries",
+  },
+  {
+    name: "Primary text",
     token: "--color-text-primary",
-    hex: "#191c19",
     usage: "Primary copy",
+    palette: "Neutral 900 · Neutral 50",
+  },
+  {
+    name: "Muted text",
+    token: "--color-text-muted",
+    palette: "Neutral 500 · Neutral 300",
+    usage: "Secondary copy",
   },
   {
     name: "Accent",
     token: "--color-accent",
-    hex: "#315fea",
+    palette: "Cobalt 600 · Cobalt 400",
     usage: "Links & actions",
+  },
+  {
+    name: "Accent hover",
+    token: "--color-accent-hover",
+    palette: "Cobalt 700 · Cobalt 300",
+    usage: "Hovered links & actions",
   },
 ] as const;
 
@@ -175,11 +199,11 @@ const fontCards = [
             Two typefaces, one clear voice.
           </h2>
         </div>
-        <div class="grid gap-4 md:grid-cols-2">
+        <div class="grid gap-8 border-y border-border-soft py-7 md:grid-cols-2 md:gap-10">
           {fontCards.map((font) => (
-            <article class="grid content-start gap-6 rounded-2xl border border-border-soft bg-surface p-6 md:p-7">
+            <article class="grid content-start gap-5">
               <div class="grid gap-3">
-                <p class="font-mono text-xs uppercase tracking-wider text-text-muted">
+                <p class={cn(label, text({ size: "xs", color: "secondary" }))}>
                   {font.role}
                 </p>
                 <h3
@@ -194,25 +218,44 @@ const fontCards = [
                   {font.description}
                 </p>
               </div>
-              <dl class="grid gap-3 border-t border-border-soft pt-4 text-sm sm:grid-cols-2">
+              <dl
+                class={cn(
+                  "grid gap-x-8 gap-y-4 sm:grid-cols-2",
+                  text({ size: "sm" }),
+                )}
+              >
                 <div>
-                  <dt class="text-xs text-text-muted">Style</dt>
-                  <dd class="mt-1 font-medium">{font.style}</dd>
+                  <dt class={text({ size: "xs", color: "secondary" })}>
+                    Style
+                  </dt>
+                  <dd class={text({ size: "sm", weight: "medium" })}>
+                    {font.style}
+                  </dd>
                 </div>
                 <div>
-                  <dt class="text-xs text-text-muted">{font.weightLabel}</dt>
-                  <dd class="mt-1 font-medium">{font.weight}</dd>
+                  <dt class={text({ size: "xs", color: "secondary" })}>
+                    {font.weightLabel}
+                  </dt>
+                  <dd class={text({ size: "sm", weight: "medium" })}>
+                    {font.weight}
+                  </dd>
                 </div>
                 <div class="sm:col-span-2">
-                  <dt class="text-xs text-text-muted">Used for</dt>
-                  <dd class="mt-1 font-medium">{font.usage}</dd>
+                  <dt class={text({ size: "xs", color: "secondary" })}>
+                    Used for
+                  </dt>
+                  <dd class={text({ size: "sm", weight: "medium" })}>
+                    {font.usage}
+                  </dd>
                 </div>
                 <div class="sm:col-span-2">
-                  <dt class="text-xs text-text-muted">Character set</dt>
+                  <dt class={text({ size: "xs", color: "secondary" })}>
+                    Character set
+                  </dt>
                   <dd
                     class={cn(
                       text({ size: "sm" }),
-                      "mt-1 break-all",
+                      "break-all",
                       font.mono && "font-mono",
                     )}
                   >
@@ -228,9 +271,22 @@ const fontCards = [
             </article>
           ))}
         </div>
-        <div class="overflow-hidden rounded-2xl border border-border-soft bg-surface">
+        <div class="divide-y divide-border-soft">
           {typeSamples.map((item) => (
-            <div class="grid gap-4 border-b border-border-soft px-5 py-6 last:border-0 sm:px-7 sm:py-7">
+            <div class="grid gap-3 py-6 first:pt-2">
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <p class={text({ size: "sm", weight: "medium" })}>
+                  {item.name}
+                </p>
+                <p
+                  class={cn(
+                    text({ size: "xs", color: "secondary" }),
+                    "font-mono",
+                  )}
+                >
+                  {item.detail}
+                </p>
+              </div>
               <p
                 class={
                   "level" in item
@@ -249,12 +305,6 @@ const fontCards = [
               >
                 {item.sample}
               </p>
-              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-t border-border-soft pt-3">
-                <p class={text({ size: "sm", weight: "medium" })}>
-                  {item.name}
-                </p>
-                <p class="font-mono text-xs text-text-muted">{item.detail}</p>
-              </div>
             </div>
           ))}
         </div>
@@ -275,45 +325,69 @@ const fontCards = [
             themes.
           </p>
         </div>
-        {palettes.map((palette) => (
-          <article class="rounded-2xl border border-border-soft bg-surface p-5 sm:p-6 md:p-7">
-            <div class="mb-5 grid gap-1.5">
-              <h3 class="font-medium">{palette.name}</h3>
-              <p class={text({ size: "sm", color: "secondary" })}>
-                {palette.description}
-              </p>
-            </div>
-            <div class="grid grid-cols-4 gap-x-3 gap-y-4 sm:grid-cols-6 lg:grid-cols-11">
-              {palette.shades.map(([shade, hex]) => (
-                <div class="min-w-0">
-                  <div
-                    class="aspect-square rounded-lg border border-black/5"
-                    style={`background:${hex}`}
-                  ></div>
-                  <p class="mt-2 font-mono text-xs text-text-muted">{shade}</p>
-                  <p class="font-mono text-xs text-text-muted">{hex}</p>
-                </div>
-              ))}
-            </div>
-          </article>
-        ))}
-        <div class="grid gap-4 sm:grid-cols-2">
-          {semanticColors.map(({ name, token, hex, usage }) => (
-            <article class="grid content-start gap-5 rounded-2xl border border-border-soft bg-surface p-5 sm:p-6">
-              <div class="grid grid-cols-[3.5rem_1fr] items-start gap-4">
+        <div class="divide-y divide-border-soft border-y border-border-soft">
+          {palettes.map((palette) => (
+            <article class="py-7 first:pt-6">
+              <div class="mb-5 grid gap-1.5">
+                <h3 class={text({ size: "default", weight: "medium" })}>
+                  {palette.name}
+                </h3>
+                <p class={text({ size: "sm", color: "secondary" })}>
+                  {palette.description}
+                </p>
+              </div>
+              <div class="grid grid-cols-4 gap-x-3 gap-y-4 sm:grid-cols-6 lg:grid-cols-11">
+                {palette.shades.map(([shade, hex]) => (
+                  <div class="min-w-0">
+                    <div
+                      class="aspect-square rounded-lg border border-black/5"
+                      style={`background:${hex}`}
+                    ></div>
+                    <p
+                      class={cn(
+                        text({ size: "xs", color: "secondary" }),
+                        "mt-2 font-mono",
+                      )}
+                    >
+                      {shade}
+                    </p>
+                    <p
+                      class={cn(
+                        text({ size: "xs", color: "secondary" }),
+                        "font-mono",
+                      )}
+                    >
+                      {hex}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+        <div class="grid sm:grid-cols-2 sm:gap-x-8">
+          {semanticColors.map(({ name, token, palette, usage }) => (
+            <article class="grid content-start gap-3 border-b border-border-soft py-5 last:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0">
+              <div class="flex items-start gap-4">
                 <div
-                  class="size-14 rounded-xl border border-black/10"
-                  style={`background:${hex}`}
+                  class="size-14 shrink-0 rounded-xl border border-black/10"
+                  style={`background:var(${token})`}
                   aria-hidden="true"
                 ></div>
-                <div class="grid gap-1.5">
-                  <h3 class="text-lg font-medium">{name}</h3>
-                  <p class="text-sm text-text-muted">{usage}</p>
+                <div>
+                  <h3 class={text({ size: "lg", weight: "medium" })}>{name}</h3>
+                  <p class={text({ size: "sm", color: "secondary" })}>
+                    {usage}
+                  </p>
+                  <p
+                    class={cn(
+                      text({ size: "xs", color: "secondary" }),
+                      "font-mono mt-1.5",
+                    )}
+                  >
+                    {palette}
+                  </p>
                 </div>
-              </div>
-              <div class="flex flex-wrap justify-between gap-x-3 gap-y-1 border-t border-border-soft pt-3 font-mono text-xs text-text-muted">
-                <span>{token}</span>
-                <span>{hex}</span>
               </div>
             </article>
           ))}
