@@ -1,7 +1,7 @@
 export const TITLE = "Brett Smith - Software Engineer";
 
 export const DESCRIPTION =
-  "Software engineer interested in TypeScript, React, and Design Systems. Currently working as a Senior Frontend Engineer at BreakLine.";
+  "Software engineer interested in TypeScript, React, and Design Systems. Currently working as a Senior Fullstack Engineer at ClearOne Advantage.";
 
 export const SOCIAL_LINKS = [
   { url: "https://github.com/jbsmith731", name: "GitHub" },
